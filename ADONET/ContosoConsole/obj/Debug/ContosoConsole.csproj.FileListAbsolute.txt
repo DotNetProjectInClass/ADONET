@@ -1,0 +1,10 @@
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\ContosoConsole.exe.config
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\ContosoConsole.exe
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\ContosoConsole.pdb
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\Contoso.Models.dll
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\Contoso.Repository.dll
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\Contoso.Models.pdb
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\bin\Debug\Contoso.Repository.pdb
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\obj\Debug\ContosoConsole.csprojResolveAssemblyReference.cache
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\obj\Debug\ContosoConsole.exe
+C:\Users\xie_x\documents\visual studio 2017\Projects\ADONET\ContosoConsole\obj\Debug\ContosoConsole.pdb
