@@ -27,7 +27,6 @@ namespace ContosoConsole
             Console.WriteLine("---- Insert Department ----");
             Departments departmentNew = new Departments()
             {
-                Id = 5,
                 Name = "Logical",
                 Budget = 1500,
                 StartDate = DateTime.Now,
@@ -43,7 +42,25 @@ namespace ContosoConsole
             departments.ForEach(m => Console.WriteLine("The department Id = {0}, Name = {1}, Budget = {2}, StartDate = {3}, InstructorId = {4}", m.Id, m.Name, m.Budget, m.StartDate, m.InstructorId));
 
             Console.WriteLine("---- Delete Department ----");
-            departmentRepository.DeleteDepartment(4);
+            departmentRepository.DeleteDepartment(2);
+            departments = departmentRepository.GetAllDepartments();
+            departments.ForEach(m => Console.WriteLine("The department Id = {0}, Name = {1}, Budget = {2}, StartDate = {3}, InstructorId = {4}", m.Id, m.Name, m.Budget, m.StartDate, m.InstructorId));
+
+            Console.WriteLine("---- Update Department ----");
+            departmentNew = new Departments()
+            {
+                Id = 2,
+                Name = "Logical",
+                Budget = 1500,
+                StartDate = DateTime.Now,
+                InstructorId = 2,
+                RowVersion = 3,
+                CreatedDate = DateTime.Now,
+                CreatedBy = 1,
+                UpdatedDate = DateTime.Now,
+                UpdatedBy = 1
+            };
+            departmentRepository.UpdateDepartment(departmentNew);
             departments = departmentRepository.GetAllDepartments();
             departments.ForEach(m => Console.WriteLine("The department Id = {0}, Name = {1}, Budget = {2}, StartDate = {3}, InstructorId = {4}", m.Id, m.Name, m.Budget, m.StartDate, m.InstructorId));
 

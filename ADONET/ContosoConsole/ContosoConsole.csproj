@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\InClassProject\Contoso.Models\Contoso.Models.csproj">
+    <ProjectReference Include="..\Contoso.Models\Contoso.Models.csproj">
       <Project>{94d4e45d-09ba-446b-bbca-eb5d10be402a}</Project>
       <Name>Contoso.Models</Name>
     </ProjectReference>

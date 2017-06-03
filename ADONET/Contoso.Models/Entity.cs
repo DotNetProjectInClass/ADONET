@@ -9,8 +9,8 @@ namespace Contoso.Models
     public class Entity
     {
         public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
+        public int? CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public string UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
     }
 }

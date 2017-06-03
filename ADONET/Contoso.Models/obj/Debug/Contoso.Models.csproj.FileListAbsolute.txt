@@ -1,0 +1,4 @@
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\Contoso.Models\bin\Debug\Contoso.Models.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\Contoso.Models\bin\Debug\Contoso.Models.pdb
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\Contoso.Models\obj\Debug\Contoso.Models.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\Contoso.Models\obj\Debug\Contoso.Models.pdb

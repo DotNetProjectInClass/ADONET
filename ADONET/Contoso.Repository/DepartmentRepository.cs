@@ -92,11 +92,15 @@ namespace Contoso.Repository
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                dep.Id = Convert.ToInt32(reader["Id"]);
-                dep.Budget = Convert.ToInt32(reader["Budget"]);
-                dep.Name = reader["Name"].ToString();
-                dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
-                dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                while (reader.Read())
+                {
+                    dep.Id = Convert.ToInt32(reader["Id"]);
+                    dep.Budget = Convert.ToInt32(reader["Budget"]);
+                    dep.Name = reader["Name"].ToString();
+                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
+
+                }
             }
             catch (Exception e)
             {
@@ -115,7 +119,6 @@ namespace Contoso.Repository
             
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("insertDepartment", connection);
-            command.Parameters.AddWithValue("@Id", department.Id);
             command.Parameters.AddWithValue("@name", department.Name);
             command.Parameters.AddWithValue("@Budget", department.Budget);
             command.Parameters.AddWithValue("@StartDate", department.StartDate);
@@ -151,7 +154,7 @@ namespace Contoso.Repository
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("DeleteDepartmentById", connection);
             command.Parameters.AddWithValue("@Id", id);
-          
+            
 
             command.CommandType = CommandType.StoredProcedure;
             try
@@ -171,9 +174,37 @@ namespace Contoso.Repository
             }
         }
 
-        public void UpdateDepartment(Departments dept)
+        public void UpdateDepartment(Departments department)
         {
-            
+            SqlConnection connection = new SqlConnection(cs);
+            SqlCommand command = new SqlCommand("UpdateDepartment", connection);
+            command.Parameters.AddWithValue("@Id", department.Id);
+            command.Parameters.AddWithValue("@name", department.Name);
+            command.Parameters.AddWithValue("@Budget", department.Budget);
+            command.Parameters.AddWithValue("@StartDate", department.StartDate);
+            command.Parameters.AddWithValue("@instructorid", department.InstructorId);
+            command.Parameters.AddWithValue("@RowVersion", department.RowVersion);
+            command.Parameters.AddWithValue("@CreatedDate", department.CreatedDate);
+            command.Parameters.AddWithValue("@CreatedBy", department.CreatedBy);
+            command.Parameters.AddWithValue("@UpdatedBy", department.UpdatedBy);
+            command.Parameters.AddWithValue("@UpdatedDate", department.UpdatedDate);
+
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
         }
     }
 }
