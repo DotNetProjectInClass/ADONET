@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ContosoWeb.Departments;
+using ContosoWeb.Department;
 using Contoso.Models;
 using ContosoService;
 
-namespace ContosoWeb.Departments
+namespace ContosoWeb.Department
 {
     public partial class AddDepartment : System.Web.UI.Page
     {
@@ -19,7 +19,7 @@ namespace ContosoWeb.Departments
 
         protected void btnSave_OnClick(object sender, EventArgs e)
         {
-            var department = new Contoso.Models.Departments()
+            var department = new Contoso.Models.Department()
             {
                 Name = txtName.Text,
                 Budget = Convert.ToInt32(txtBudget.Text),
@@ -31,8 +31,8 @@ namespace ContosoWeb.Departments
                 CreatedDate = DateTime.Now,
                 RowVersion = 2
             };
-            DepartmentService departmentService = new DepartmentService();
-            departmentService.SaveDepartment(department);
+            Departmentervice Departmentervice = new Departmentervice();
+            Departmentervice.SaveDepartment(department);
 
         }
     }

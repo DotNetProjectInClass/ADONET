@@ -11,47 +11,13 @@ using System.Net.Configuration;
 
 namespace Contoso.Repository
 {
-    public class DepartmentRepository
+    public class DepartmentRepository:ICrudService<Department>
     {
         string cs = ConfigurationManager.ConnectionStrings["ContosoDbContext"].ConnectionString;
-        //string connstr = ADONET.Utility.GetConnectionString();
-        public List<Departments> GetAllDepartments()
+  
+        public Department GetDepartmentByName(string name)
         {
-            //using (SqlConnection connection = new SqlConnection(cs));
-
-            List<Departments> depts = new List<Departments>();
-            SqlConnection connection = new SqlConnection(cs);
-            SqlCommand command = new SqlCommand("GetAllDepartment",connection);
-            try
-            {                                
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Departments dep = new Departments();
-                    dep.Id =Convert.ToInt32(reader["Id"]);
-                    dep.Budget = Convert.ToInt32(reader["Budget"]);
-                    dep.Name = reader["Name"].ToString();
-                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
-                    dep.StartDate =Convert.ToDateTime(reader["StartDate"]);
-                    depts.Add(dep);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            finally
-            {
-               connection.Dispose();
-            }
-            return depts;
-        }
-
-        public Departments GetDepartmentByName(string name)
-        {
-            Departments dep = new Departments();
+            Department dep = new Department();
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("GetDepartmentByName", connection);
             command.Parameters.AddWithValue("@Name", name);
@@ -81,42 +47,8 @@ namespace Contoso.Repository
             return dep;
         }
 
-        public Departments GetDepartmentById(int id)
+        public int Create(Department department)
         {
-            Departments dep = new Departments();
-            SqlConnection connection = new SqlConnection(cs);
-            SqlCommand command = new SqlCommand("GetDepartmentById", connection);
-            command.Parameters.AddWithValue("@Id", id);
-            command.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    dep.Id = Convert.ToInt32(reader["Id"]);
-                    dep.Budget = Convert.ToInt32(reader["Budget"]);
-                    dep.Name = reader["Name"].ToString();
-                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
-                    dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            finally
-            {
-                connection.Dispose();
-            }
-            return dep;
-        }
-
-        public void AddDepartment(Departments department)
-        {
-            
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("insertDepartment", connection);
             command.Parameters.AddWithValue("@name", department.Name);
@@ -128,34 +60,6 @@ namespace Contoso.Repository
             command.Parameters.AddWithValue("@CreatedBy", department.CreatedBy);
             command.Parameters.AddWithValue("@UpdatedBy", department.UpdatedBy);
             command.Parameters.AddWithValue("@UpdatedDate", department.UpdatedDate);
-
-
-            command.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-               
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            finally
-            {
-                connection.Dispose();
-            }
-            
-        }
-
-        public void DeleteDepartment(int id)
-        {
-            SqlConnection connection = new SqlConnection(cs);
-            SqlCommand command = new SqlCommand("DeleteDepartmentById", connection);
-            command.Parameters.AddWithValue("@Id", id);
-            
-
             command.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -172,9 +76,10 @@ namespace Contoso.Repository
             {
                 connection.Dispose();
             }
+            return department.Id;
         }
 
-        public void UpdateDepartment(Departments department)
+        public void Update(Department department)
         {
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("UpdateDepartment", connection);
@@ -205,6 +110,96 @@ namespace Contoso.Repository
             {
                 connection.Dispose();
             }
+        }
+
+        public void Delete(int id)
+        {
+            SqlConnection connection = new SqlConnection(cs);
+            SqlCommand command = new SqlCommand("DeleteDepartmentById", connection);
+            command.Parameters.AddWithValue("@Id", id);
+
+
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+        }
+
+        public Department Get(int id)
+        {
+            Department department = new Department();
+            SqlConnection connection = new SqlConnection(cs);
+            SqlCommand command = new SqlCommand("GetDepartmentById", connection);
+            command.Parameters.AddWithValue("@Id", id);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    department.Id = Convert.ToInt32(reader["Id"]);
+                    department.Budget = Convert.ToInt32(reader["Budget"]);
+                    department.Name = reader["Name"].ToString();
+                    department.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    department.StartDate = Convert.ToDateTime(reader["StartDate"]);
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return department;
+        }
+
+        public IEnumerable<Department> GetAll()
+        {
+            List<Department> depts = new List<Department>();
+            SqlConnection connection = new SqlConnection(cs);
+            SqlCommand command = new SqlCommand("GetAllDepartment", connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Department dep = new Department();
+                    dep.Id = Convert.ToInt32(reader["Id"]);
+                    dep.Budget = Convert.ToInt32(reader["Budget"]);
+                    dep.Name = reader["Name"].ToString();
+                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    depts.Add(dep);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return depts;
         }
     }
 }

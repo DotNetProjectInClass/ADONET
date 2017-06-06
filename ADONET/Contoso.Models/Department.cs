@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contoso.Models
 {
-    public class Departments:Entity
+    public class Department:Entity
     {
         public int Id { get; set; }
         public string Name { get; set; }

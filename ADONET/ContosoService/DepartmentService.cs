@@ -8,12 +8,12 @@ using Contoso.Repository;
 
 namespace ContosoService
 {
-    public class DepartmentService
+    public class Departmentervice
     {
         private DepartmentRepository _departmentRepository = new DepartmentRepository();
-        public void SaveDepartment(Departments department)
+        public void SaveDepartment(Department department)
         {
-            _departmentRepository.AddDepartment(department);
+            int id = _departmentRepository.Create(department);
         }
     }
 }

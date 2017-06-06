@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ContosoWeb.Departments {
+namespace ContosoWeb.Department {
     
     
     public partial class AddDepartment {
