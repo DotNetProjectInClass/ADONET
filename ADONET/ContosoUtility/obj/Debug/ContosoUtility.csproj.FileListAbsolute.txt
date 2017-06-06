@@ -1,0 +1,5 @@
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoUtility\bin\Debug\ContosoUtility.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoUtility\bin\Debug\ContosoUtility.pdb
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoUtility\obj\Debug\ContosoUtility.csprojResolveAssemblyReference.cache
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoUtility\obj\Debug\ContosoUtility.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoUtility\obj\Debug\ContosoUtility.pdb

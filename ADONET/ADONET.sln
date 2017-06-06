@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoService", "ContosoSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoWeb", "ContosoWeb\ContosoWeb.csproj", "{045B8447-AE14-4C40-B2C5-1816E7AC42C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUtility", "ContosoUtility\ContosoUtility.csproj", "{8542C308-6B4C-4F54-B9FA-6783A78E1D4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{045B8447-AE14-4C40-B2C5-1816E7AC42C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{045B8447-AE14-4C40-B2C5-1816E7AC42C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{045B8447-AE14-4C40-B2C5-1816E7AC42C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8542C308-6B4C-4F54-B9FA-6783A78E1D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8542C308-6B4C-4F54-B9FA-6783A78E1D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8542C308-6B4C-4F54-B9FA-6783A78E1D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8542C308-6B4C-4F54-B9FA-6783A78E1D4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

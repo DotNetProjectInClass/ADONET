@@ -143,6 +143,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Instructor\AddInstructor.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -211,6 +212,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Instructor\AddInstructor.aspx.cs">
+      <DependentUpon>AddInstructor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instructor\AddInstructor.aspx.designer.cs">
+      <DependentUpon>AddInstructor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -255,6 +263,10 @@
     <ProjectReference Include="..\ContosoService\ContosoService.csproj">
       <Project>{ff557722-394a-4fd6-907e-7548988b76e6}</Project>
       <Name>ContosoService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContosoUtility\ContosoUtility.csproj">
+      <Project>{8542c308-6b4c-4f54-b9fa-6783a78e1d4c}</Project>
+      <Name>ContosoUtility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

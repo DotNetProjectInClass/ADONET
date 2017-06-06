@@ -66,3 +66,5 @@ C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb
 C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb\bin\Contoso.Models.pdb
 C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb\bin\ContosoService.pdb
 C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb\bin\Contoso.Repository.pdb
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb\bin\ContosoUtility.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\ContosoWeb\bin\ContosoUtility.pdb
