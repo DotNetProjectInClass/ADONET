@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Contoso.Models
 {
-    public class Instructor
+    public class Instructor:People
     {
-        public int Id { get; set; }
+        public int PeopleId { get; set; }
         public DateTime? HireDate { get; set; }
+        public double Salary { get; set; }
     }
 }

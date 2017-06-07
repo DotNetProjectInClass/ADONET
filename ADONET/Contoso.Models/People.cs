@@ -12,7 +12,7 @@ namespace Contoso.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
-        public int Age { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string AddressLine1 { get; set; }
@@ -26,6 +26,6 @@ namespace Contoso.Models
         public bool? IsLocked { get; set; }
         public DateTime? LastLockedDateTime { get; set; }
         public int? FailedAttemps { get; set; }
-
+        public string SSN { get; set; }
     }
 }
