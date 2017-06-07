@@ -10,8 +10,11 @@ namespace ContosoWeb.Instructor
 {
     public partial class AddInstructor : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtDateOfBirthValidate.MinimumValue = DateTime.Now.Date.AddYears(-100).ToString("MM/dd/yyyy");
+            txtDateOfBirthValidate.MaximumValue = DateTime.Now.Date.AddYears(-15).ToString("MM/dd/yyyy");
             if (!Page.IsPostBack)
             {
                 ddlState.DataSource = Utility.GetAllStates();

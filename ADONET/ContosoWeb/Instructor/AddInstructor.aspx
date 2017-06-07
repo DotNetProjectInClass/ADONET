@@ -40,16 +40,18 @@
             <div class="form-group">
                 <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
                 <label>Date Of Birth</label>
-                <asp:TextBox ID="txtDateOfBirth" runat="server"  CssClass="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                <asp:TextBox ID="txtDateOfBirth" runat="server"  CssClass="form-control" placeholder="mm/dd/yyyy"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ErrorMessage="Date of birth should not be empty." Display="Dynamic" ControlToValidate="txtDateOfBirth"></asp:RequiredFieldValidator>                                      
-                <asp:RegularExpressionValidator runat="server" ErrorMessage="Format must be dd/mm/yyyy" Display="Dynamic" ControlToValidate="txtDateOfBirth" ValidationExpression="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)"></asp:RegularExpressionValidator>              
+                <asp:RegularExpressionValidator runat="server" ErrorMessage="Format must be mm/dd/yyyy" Display="Dynamic" ControlToValidate="txtDateOfBirth" ValidationExpression="(^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$)"></asp:RegularExpressionValidator>              
+                <asp:RangeValidator ID="txtDateOfBirthValidate" runat="server" ErrorMessage="Age should be greater than 15." ControlToValidate="txtDateOfBirth" Display="Dynamic" Type="Date" ></asp:RangeValidator >
+            
             </div>
             <div class="form-group">
                 <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
                 <label>Hire Date</label>
-                <asp:TextBox ID="txtHireDate" runat="server"  CssClass="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                <asp:TextBox ID="txtHireDate" runat="server"  CssClass="form-control" placeholder="mm/dd/yyyy"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ErrorMessage="Hire date should not be empty." Display="Dynamic" ControlToValidate="txtHireDate"></asp:RequiredFieldValidator>                                      
-                <asp:RegularExpressionValidator runat="server" ErrorMessage="Format must be dd/mm/yyyy" Display="Dynamic" ControlToValidate="txtHireDate" ValidationExpression="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)"></asp:RegularExpressionValidator>              
+                <asp:RegularExpressionValidator runat="server" ErrorMessage="Format must be mm/dd/yyyy" Display="Dynamic" ControlToValidate="txtHireDate" ValidationExpression="(^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$)"></asp:RegularExpressionValidator>              
             </div>
             <div class="form-group">
                 <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
@@ -66,17 +68,20 @@
                 <asp:RequiredFieldValidator runat="server" ErrorMessage="Phone number should not be empty." Display="Dynamic" ControlToValidate="txtPhone"></asp:RequiredFieldValidator>                          
             </div>
             <div class="form-group">
-                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span><label>SSN</label>
+                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
+                <label>SSN</label>
                 <asp:TextBox runat="server" ID="txtSSN" CssClass="form-control" placeholder="000-00-0000"></asp:TextBox>
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtSSN" Display="Dynamic" ErrorMessage="SSN should be in a validate format." ValidationExpression="\d{3}-\d{2}-\d{4}" ></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator runat="server" ErrorMessage="SSN should not be empty." Display="Dynamic" ControlToValidate="txtSSN"></asp:RequiredFieldValidator>                          
             </div>
             <div class="form-group">
-                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span><label>State</label>
+                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
+                <label>State</label>
                 <asp:DropDownList runat="server" id="ddlState" CssClass="form-control"/>
             </div>
             <div class="form-group">
-                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span><label>Salary</label>
+                <span style='color:red; float: left; margin-right:4px; margin-top:3px;'> * </span>
+                <label>Salary</label>
                 <asp:TextBox runat="server" ID="txtSalary" CssClass="form-control"></asp:TextBox>
                 <%--<asp:RegularExpressionValidator runat="server" ControlToValidate="txtSalary" Display="Dynamic" ErrorMessage="Salary should be in a validate format." ValidationExpression="" ></asp:RegularExpressionValidator>
                --%> 
