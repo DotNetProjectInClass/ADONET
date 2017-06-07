@@ -17,12 +17,12 @@
             <div class="form-group" style="margin-left: 10px;">
                 <label for="form1">First Name </label>
                 <asp:TextBox runat="server" ID="txtFirstName" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator runat="server" ErrorMessage="First Name should not be empty." ControlToValidate="txtFirstName"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ErrorMessage="First Name should not be empty." ControlToValidate="txtFirstName"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group"style="margin-left: 10px;">
                 <label>Last Name </label>
-                <asp:TextBox runat="server" ID="txtLastName" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator runat="server" ErrorMessage="Last Name should not be empty." ControlToValidate="txtLastName"></asp:RequiredFieldValidator>
+                <asp:TextBox runat="server" ID="txtLastName"  CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" Display="Dynamic" ErrorMessage="Last Name should not be empty." ControlToValidate="txtLastName"></asp:RequiredFieldValidator>
            
             </div>
             <div class="form-group"style="margin-left: 10px;">
@@ -32,8 +32,8 @@
             <div class="form-group"style="margin-left: 10px;">
                 <label>Email </label>
                 <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control"></asp:TextBox>
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEmail" ErrorMessage="Email should be in a validate format." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                <asp:RequiredFieldValidator runat="server" ErrorMessage="Email should not be empty." ControlToValidate="txtEmail"></asp:RequiredFieldValidator>           
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Email should be in a validate format." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator runat="server" ErrorMessage="Email should not be empty." Display="Dynamic" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>           
                
             </div>
             <div class="form-group"style="margin-left: 10px;">
