@@ -30,7 +30,7 @@ namespace ContosoWeb.Instructor
                 DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
                Email = txtEmail.Text,
                Phone = txtPhone.Text,
-               State = txtPhone.Text,
+               State = ddlState.SelectedValue,
                SSN = txtSSN.Text,
                 HireDate = Convert.ToDateTime(txtHireDate.Text),
                 Salary = Convert.ToDouble(txtSalary.Text),
