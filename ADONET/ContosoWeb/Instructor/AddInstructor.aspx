@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddInstructor.aspx.cs" Inherits="ContosoWeb.Instructor.AddInstructor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AddInstructor.aspx.cs" Inherits="ContosoWeb.Instructor.AddInstructor" %>
 
 <!DOCTYPE html>
 

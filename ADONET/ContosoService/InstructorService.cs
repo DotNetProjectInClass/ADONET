@@ -15,5 +15,10 @@ namespace ContosoService
         {
             int id = _instructorRepository.Create(instructor);
         }
+
+        public List<Instructor> GetAllInstructors()
+        {
+            return _instructorRepository.GetAll().ToList();
+        }
     }
 }

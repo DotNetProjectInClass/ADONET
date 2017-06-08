@@ -15,5 +15,23 @@ namespace ContosoService
         {
             int id = _departmentRepository.Create(department);
         }
+
+        public List<Department> GetAllDepartments()
+        {
+            List<Department> departments = new List<Department>();
+            departments = _departmentRepository.GetAll().ToList();
+            return departments;
+        }
+
+        public Department GetDepartmentById(int id)
+        {
+            Department department = _departmentRepository.Get(id);
+            return department;
+        }
+
+        public void UpdateDepartment(Department department)
+        {
+            _departmentRepository.Update(department);
+        }
     }
 }

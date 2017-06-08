@@ -126,7 +126,41 @@ namespace Contoso.Repository
 
         public IEnumerable<Instructor> GetAll()
         {
-            throw new NotImplementedException();
+            List<Instructor> instructors = new List<Instructor>();
+            SqlConnection connection = new SqlConnection(cs);
+            SqlCommand command = new SqlCommand("GetAllInstructor", connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    instructors.Add(new Instructor()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        HireDate =reader["HireDate"] == null ? DateTime.MinValue:Convert.ToDateTime(reader["HireDate"]),
+                        PeopleId = reader["PeopleId"] == null? 0: Convert.ToInt32(reader["PeopleId"]),
+                        Salary =  Convert.ToDouble(reader["Salary"]),
+                        Email = reader["Email"] == null ? "-": reader["Email"].ToString(),
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName =  reader["LastName"].ToString(),
+                        SSN = reader["ssn"] == null ? "-": reader["ssn"].ToString(),
+                        DateOfBirth = reader["DateOfBirth"] == null ? DateTime.MinValue : Convert.ToDateTime(reader["DateOfBirth"]),
+                        Phone = reader["Phone"] == null ?"-" :reader["Phone"].ToString(),
+                        State = reader["State"] == null ? "-": reader["State"].ToString()
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return instructors;
         }
     }
 }

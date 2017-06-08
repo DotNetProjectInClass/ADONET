@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddDepartment.aspx.cs" Inherits="ContosoWeb.Department.AddDepartment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="ContosoWeb.Department.AddDepartment" %>
 
 <!DOCTYPE html>
 

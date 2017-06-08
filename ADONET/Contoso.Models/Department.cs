@@ -13,6 +13,7 @@ namespace Contoso.Models
         public int Budget { get; set; }
         public DateTime? StartDate { get; set; }
         public int? InstructorId { get; set; }
+        public string InstructorName { get; set; }
         public int? RowVersion { get; set; }
     }
 }

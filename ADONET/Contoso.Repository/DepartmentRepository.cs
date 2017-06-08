@@ -153,7 +153,7 @@ namespace Contoso.Repository
                     department.Id = Convert.ToInt32(reader["Id"]);
                     department.Budget = Convert.ToInt32(reader["Budget"]);
                     department.Name = reader["Name"].ToString();
-                    department.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    department.InstructorName = reader["InstructorName"].ToString();
                     department.StartDate = Convert.ToDateTime(reader["StartDate"]);
 
                 }
@@ -185,6 +185,7 @@ namespace Contoso.Repository
                     dep.Id = Convert.ToInt32(reader["Id"]);
                     dep.Budget = Convert.ToInt32(reader["Budget"]);
                     dep.Name = reader["Name"].ToString();
+                    dep.InstructorName = reader["InstructorName"].ToString();
                     dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
                     dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
                     depts.Add(dep);
