@@ -11,14 +11,19 @@ namespace ContosoService
     public class InstructorService
     {
         private InstructorRepository _instructorRepository = new InstructorRepository();
-        public void SaveInstructor(Instructor instructor)
+        public int CreateInstructor(Instructor instructor)
         {
-            int id = _instructorRepository.Create(instructor);
+           return _instructorRepository.Create(instructor);
         }
 
         public List<Instructor> GetAllInstructors()
         {
             return _instructorRepository.GetAll().ToList();
+        }
+
+        public Instructor GetInstructorById(int id)
+        {
+            return _instructorRepository.Get(id);
         }
     }
 }

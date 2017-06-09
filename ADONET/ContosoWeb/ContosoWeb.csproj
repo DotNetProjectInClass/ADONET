@@ -146,7 +146,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="HtmlPage1.html" />
-    <Content Include="Instructor\AddInstructor.aspx" />
     <Content Include="Instructor\Add.aspx" />
     <Content Include="Instructor\Detail.aspx" />
     <Content Include="Instructor\Edit.aspx" />
@@ -241,13 +240,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Instructor\AddInstructor.aspx.cs">
-      <DependentUpon>AddInstructor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Instructor\AddInstructor.aspx.designer.cs">
-      <DependentUpon>AddInstructor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Instructor\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
