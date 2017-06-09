@@ -14,6 +14,7 @@ namespace ContosoWeb.Departments
         private InstructorService _instructorService = new InstructorService();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var value = Session["key1"];
             if (!Page.IsPostBack)
             {
                

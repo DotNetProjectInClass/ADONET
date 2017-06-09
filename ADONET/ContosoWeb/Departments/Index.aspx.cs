@@ -19,7 +19,9 @@ namespace ContosoWeb.Departments
 		        repeaterDepartment.DataSource = departments;
                 repeaterDepartment.DataBind();
 		    }
-		   
+		    //int a = 1;
+		    //int b = 0;
+		    //var c = a / b;
 		}
 
 	    protected void repeaterDepartment_OnItemCommand(object source, RepeaterCommandEventArgs e)
@@ -38,6 +40,7 @@ namespace ContosoWeb.Departments
 
 	    protected void OnClick(object sender, EventArgs e)
 	    {
+	        Session["key1"] = "value1";
 	        Response.Redirect("Add.aspx");
 	    }
 	}

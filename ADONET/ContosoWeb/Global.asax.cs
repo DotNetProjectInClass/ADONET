@@ -17,5 +17,23 @@ namespace ContosoWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        void Application_Error(object sender, EventArgs e)
+        {
+            // get the exception object
+            var exception = Server.GetLastError();
+
+            // log the exception using any logging framework like log4net
+            // send an email, notify development team and system admins
+            // clear the error from the server
+            Server.ClearError();
+        }
+        void Session_Start(object sender, EventArgs e)
+        {
+           
+        }
+        void Session_End(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

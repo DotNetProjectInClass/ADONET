@@ -54,6 +54,13 @@ namespace Contoso.Repository
             return instructorId;
         }
 
+        //public int CreateUseTransaction(Instructor instructor)
+        //{
+        //    SqlConnection connection = new SqlConnection(cs);
+        //    SqlCommand command = new SqlCommand("CreatePeople", connection);
+        //    SqlTransaction transaction = command.Transaction()
+        //    return 0;
+        //}
         public int CreateSeparately(Instructor instructor)
         {
             int instructorInt32 = 0;
@@ -121,6 +128,7 @@ namespace Contoso.Repository
 
         public Instructor Get(int id)
         {
+            //GetInstructorById
             throw new NotImplementedException();
         }
 
