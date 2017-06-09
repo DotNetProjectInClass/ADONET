@@ -50,16 +50,16 @@ namespace Contoso.Repository
         public int Create(Department department)
         {
             SqlConnection connection = new SqlConnection(cs);
-            SqlCommand command = new SqlCommand("insertDepartment", connection);
+            SqlCommand command = new SqlCommand("CreateDepartment", connection);
             command.Parameters.AddWithValue("@name", department.Name);
             command.Parameters.AddWithValue("@Budget", department.Budget);
             command.Parameters.AddWithValue("@StartDate", department.StartDate);
             command.Parameters.AddWithValue("@instructorid", department.InstructorId);
-            command.Parameters.AddWithValue("@RowVersion", department.RowVersion);
-            command.Parameters.AddWithValue("@CreatedDate", department.CreatedDate);
-            command.Parameters.AddWithValue("@CreatedBy", department.CreatedBy);
-            command.Parameters.AddWithValue("@UpdatedBy", department.UpdatedBy);
-            command.Parameters.AddWithValue("@UpdatedDate", department.UpdatedDate);
+            command.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+            command.Parameters.AddWithValue("@CreatedBy", 1);
+            var departmentId = command.Parameters.Add("@Id", SqlDbType.Int);
+            departmentId.Direction = ParameterDirection.ReturnValue;
+
             command.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -88,11 +88,9 @@ namespace Contoso.Repository
             command.Parameters.AddWithValue("@Budget", department.Budget);
             command.Parameters.AddWithValue("@StartDate", department.StartDate);
             command.Parameters.AddWithValue("@instructorid", department.InstructorId);
-            command.Parameters.AddWithValue("@RowVersion", department.RowVersion);
-            command.Parameters.AddWithValue("@CreatedDate", department.CreatedDate);
-            command.Parameters.AddWithValue("@CreatedBy", department.CreatedBy);
-            command.Parameters.AddWithValue("@UpdatedBy", department.UpdatedBy);
-            command.Parameters.AddWithValue("@UpdatedDate", department.UpdatedDate);
+            command.Parameters.AddWithValue("@RowVersion", 1);
+            command.Parameters.AddWithValue("@UpdatedBy", 1);
+            command.Parameters.AddWithValue("@UpdatedDate", DateTime.Now);
 
             command.CommandType = CommandType.StoredProcedure;
             try
@@ -154,8 +152,9 @@ namespace Contoso.Repository
                     department.Budget = Convert.ToInt32(reader["Budget"]);
                     department.Name = reader["Name"].ToString();
                     department.InstructorName = reader["InstructorName"].ToString();
+                    department.InstructorId = Convert.ToInt32(reader["InstructorId"]);
                     department.StartDate = Convert.ToDateTime(reader["StartDate"]);
-
+                    department.CreatedBy = Convert.ToInt32(reader["CreatedBy"]);
                 }
             }
             catch (Exception e)

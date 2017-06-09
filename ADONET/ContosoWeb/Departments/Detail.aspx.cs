@@ -11,15 +11,22 @@ namespace ContosoWeb.Departments
 	public partial class DepartmentDetail1 : System.Web.UI.Page
 	{
         private Departmentervice _departmentervice = new Departmentervice();
-		protected void Page_Load(object sender, EventArgs e)
+	    private PeopleService _peopleService = new PeopleService();
+        protected void Page_Load(object sender, EventArgs e)
 		{
-		    var departmentId =Request.QueryString["departmentId"];
+		    var departmentId = Convert.ToInt32(Request.QueryString["departmentId"]);
 
-		    Contoso.Models.Department department = _departmentervice.GetDepartmentById(Convert.ToInt32(departmentId));
+		    Contoso.Models.Department department = _departmentervice.GetDepartmentById(departmentId);
 		    txtName.Text = department.Name;
-
+		    txtInstructor.Text = department.InstructorName;
+		    txtCreatedDate.Text = Convert.ToDateTime(department.CreatedDate).ToString("MM/dd/yyyy");
             txtBudget.Text = department.Budget.ToString();
-
+		    if (department.CreatedBy.HasValue)
+		    {
+		        txtCreatedBy.Text =_peopleService.GetPeopleNameById(department.CreatedBy.Value);
+		    }
+		    
+		    txtStartDate.Text = Convert.ToDateTime(department.StartDate).ToString("MM/dd/yyyy");
 		}
 	}
 }

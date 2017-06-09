@@ -44,6 +44,7 @@
     <Compile Include="DepartmentRepository.cs" />
     <Compile Include="ICrudService.cs" />
     <Compile Include="InstructorRepository.cs" />
+    <Compile Include="PeopleRepositary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentRepository.cs" />
   </ItemGroup>

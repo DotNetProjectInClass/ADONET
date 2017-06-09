@@ -1,7 +1,7 @@
 ﻿
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ContosoWeb.Departments.Departments1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <b>Department List: </b> <asp:Button runat="server" Text="Add New" OnClick="OnClick" style="margin-top: 7px;"/>
+    <b>Department List </b> <asp:Button runat="server" Text="Add New" OnClick="OnClick" style="margin-top: 7px;"/>
     <asp:Repeater runat="server" id="repeaterDepartment"  OnItemCommand="repeaterDepartment_OnItemCommand">
       
         <HeaderTemplate>

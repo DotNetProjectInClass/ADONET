@@ -147,9 +147,10 @@
     </Content>
     <Content Include="HtmlPage1.html" />
     <Content Include="Instructor\AddInstructor.aspx" />
-    <Content Include="Instructor\AddInstructorWithMaster.aspx" />
-    <Content Include="Instructor\InstructorDetail.aspx" />
-    <Content Include="Instructor\Instructors.aspx" />
+    <Content Include="Instructor\Add.aspx" />
+    <Content Include="Instructor\Detail.aspx" />
+    <Content Include="Instructor\Edit.aspx" />
+    <Content Include="Instructor\Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -248,26 +249,33 @@
     <Compile Include="Instructor\AddInstructor.aspx.designer.cs">
       <DependentUpon>AddInstructor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Instructor\AddInstructorWithMaster.aspx.cs">
-      <DependentUpon>AddInstructorWithMaster.aspx</DependentUpon>
+    <Compile Include="Instructor\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Instructor\AddInstructorWithMaster.aspx.designer.cs">
-      <DependentUpon>AddInstructorWithMaster.aspx</DependentUpon>
+    <Compile Include="Instructor\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Instructor\InstructorDetail.aspx.cs">
-      <DependentUpon>InstructorDetail.aspx</DependentUpon>
+    <Compile Include="Instructor\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Instructor\InstructorDetail.aspx.designer.cs">
-      <DependentUpon>InstructorDetail.aspx</DependentUpon>
+    <Compile Include="Instructor\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Instructor\Instructors.aspx.cs">
-      <DependentUpon>Instructors.aspx</DependentUpon>
+    <Compile Include="Instructor\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Instructor\Instructors.aspx.designer.cs">
-      <DependentUpon>Instructors.aspx</DependentUpon>
+    <Compile Include="Instructor\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instructor\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

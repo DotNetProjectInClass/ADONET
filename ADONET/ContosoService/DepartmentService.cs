@@ -33,5 +33,10 @@ namespace ContosoService
         {
             _departmentRepository.Update(department);
         }
+
+        public int CreateDepartment(Department department)
+        {
+            return _departmentRepository.Create(department);
+        }
     }
 }
