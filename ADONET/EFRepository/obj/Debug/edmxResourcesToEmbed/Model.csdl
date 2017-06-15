@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Credits" Type="Int32" />
+    <Property Name="DepartmentID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK__Course__Departme__0D7A0286" FromRole="Course" ToRole="Department" />
+    <NavigationProperty Name="InstructorCourses" Relationship="Self.FK__Instructo__Cours__17036CC0" FromRole="Course" ToRole="InstructorCourse" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.FK_enrollments" FromRole="Course" ToRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Budget" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="InstructorID" Type="Int32" Nullable="false" />
+    <Property Name="RowVersion" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK__Course__Departme__0D7A0286" FromRole="Department" ToRole="Course" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK__Departmen__Instr__18EBB532" FromRole="Department" ToRole="Instructor" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_enrollments" FromRole="Enrollment" ToRole="Course" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_enrollments1" FromRole="Enrollment" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HireDate" Type="DateTime" Precision="3" />
+    <Property Name="PeopleId" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK__Departmen__Instr__18EBB532" FromRole="Instructor" ToRole="Department" />
+    <NavigationProperty Name="InstructorCourses" Relationship="Self.FK__Instructo__Instr__160F4887" FromRole="Instructor" ToRole="InstructorCourse" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__Instructo__Peopl__151B244E" FromRole="Instructor" ToRole="People" />
+    <NavigationProperty Name="OfficeAssignments" Relationship="Self.FK_OfficeAssignments_Instructor" FromRole="Instructor" ToRole="OfficeAssignment" />
+  </EntityType>
+  <EntityType Name="InstructorCourse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="InstructorId" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Course" Relationship="Self.FK__Instructo__Cours__17036CC0" FromRole="InstructorCourse" ToRole="Course" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK__Instructo__Instr__160F4887" FromRole="InstructorCourse" ToRole="Instructor" />
+  </EntityType>
+  <EntityType Name="OfficeAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="InstructorId" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK_OfficeAssignments_Instructor" FromRole="OfficeAssignment" ToRole="Instructor" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UnitOrApartmentNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Salt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="LastLockedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="FailedAttempts" Type="Int32" />
+    <Property Name="ssn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Instructors" Relationship="Self.FK__Instructo__Peopl__151B244E" FromRole="People" ToRole="Instructor" />
+    <NavigationProperty Name="Students" Relationship="Self.FK__Student__PeopleI__17F790F9" FromRole="People" ToRole="Student" />
+    <NavigationProperty Name="PersonRoles" Relationship="Self.FK_PersonRoles2" FromRole="People" ToRole="PersonRole" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_student" FromRole="People" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="PersonRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_PersonRoles2" FromRole="PersonRole" ToRole="People" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_PersonRoles" FromRole="PersonRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="PersonRoles" Relationship="Self.FK_PersonRoles" FromRole="Role" ToRole="PersonRole" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentDate" Type="DateTime" Precision="3" />
+    <Property Name="PeopleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.FK_enrollments1" FromRole="Student" ToRole="Enrollment" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__Student__PeopleI__17F790F9" FromRole="Student" ToRole="People" />
+    <NavigationProperty Name="Person1" Relationship="Self.FK_student" FromRole="Student" ToRole="People" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Thread" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Logger" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Thread" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logger" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Course__Departme__0D7A0286">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Instructo__Cours__17036CC0">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="InstructorCourse" Type="Self.InstructorCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InstructorCourse">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enrollments">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departmen__Instr__18EBB532">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="InstructorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enrollments1">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Instructo__Instr__160F4887">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="InstructorCourse" Type="Self.InstructorCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InstructorCourse">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Instructo__Peopl__151B244E">
+    <End Role="People" Type="Self.Person" Multiplicity="1" />
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instructor">
+        <PropertyRef Name="PeopleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfficeAssignments_Instructor">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="OfficeAssignment" Type="Self.OfficeAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfficeAssignment">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__PeopleI__17F790F9">
+    <End Role="People" Type="Self.Person" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="PeopleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonRoles2">
+    <End Role="People" Type="Self.Person" Multiplicity="1" />
+    <End Role="PersonRole" Type="Self.PersonRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonRole">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student">
+    <End Role="People" Type="Self.Person" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonRoles">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="PersonRole" Type="Self.PersonRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+    <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+    <EntitySet Name="InstructorCourses" EntityType="Self.InstructorCourse" />
+    <EntitySet Name="OfficeAssignments" EntityType="Self.OfficeAssignment" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="PersonRoles" EntityType="Self.PersonRole" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Logs" EntityType="Self.Log" />
+    <AssociationSet Name="FK__Course__Departme__0D7A0286" Association="Self.FK__Course__Departme__0D7A0286">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Instructo__Cours__17036CC0" Association="Self.FK__Instructo__Cours__17036CC0">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="InstructorCourse" EntitySet="InstructorCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enrollments" Association="Self.FK_enrollments">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departmen__Instr__18EBB532" Association="Self.FK__Departmen__Instr__18EBB532">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enrollments1" Association="Self.FK_enrollments1">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Instructo__Instr__160F4887" Association="Self.FK__Instructo__Instr__160F4887">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="InstructorCourse" EntitySet="InstructorCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Instructo__Peopl__151B244E" Association="Self.FK__Instructo__Peopl__151B244E">
+      <End Role="People" EntitySet="People" />
+      <End Role="Instructor" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfficeAssignments_Instructor" Association="Self.FK_OfficeAssignments_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="OfficeAssignment" EntitySet="OfficeAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__PeopleI__17F790F9" Association="Self.FK__Student__PeopleI__17F790F9">
+      <End Role="People" EntitySet="People" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonRoles2" Association="Self.FK_PersonRoles2">
+      <End Role="People" EntitySet="People" />
+      <End Role="PersonRole" EntitySet="PersonRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student" Association="Self.FK_student">
+      <End Role="People" EntitySet="People" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonRoles" Association="Self.FK_PersonRoles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="PersonRole" EntitySet="PersonRoles" />
+    </AssociationSet>
+    <FunctionImport Name="CreateDepartment">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="budget" Mode="In" Type="Int32" />
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="instructorid" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="createdby" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreateInstructor">
+      <Parameter Name="firstname" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="middlename" Mode="In" Type="String" />
+      <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="ssn" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="createdby" Mode="In" Type="Int32" />
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="salary" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="CreateInstructorSigleTable">
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="salary" Mode="In" Type="Decimal" />
+      <Parameter Name="PeopleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Createpeople">
+      <Parameter Name="firstname" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="middlename" Mode="In" Type="String" />
+      <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="ssn" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="createdby" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreatePersonRole">
+      <Parameter Name="PersonId" Mode="In" Type="Int32" />
+      <Parameter Name="roleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteDepartmentById">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllDepartment" ReturnType="Collection(StudentModel.GetAllDepartment_Result)" />
+    <FunctionImport Name="GetAllInstructor" ReturnType="Collection(StudentModel.GetAllInstructor_Result)" />
+    <FunctionImport Name="GetDepartmentById" ReturnType="Collection(StudentModel.GetDepartmentById_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetDepartmentByName" ReturnType="Collection(StudentModel.GetDepartmentByName_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetInstructorById" ReturnType="Collection(StudentModel.GetInstructorById_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QueryPeopleNameById">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="lastname" Mode="InOut" Type="String" />
+      <Parameter Name="firstname" Mode="InOut" Type="String" />
+      <Parameter Name="middlename" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(StudentModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(StudentModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="UpdateDepartment">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="budget" Mode="In" Type="Int32" />
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="instructorid" Mode="In" Type="Int32" />
+      <Parameter Name="Rowversion" Mode="In" Type="Int32" />
+      <Parameter Name="updatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="updatedby" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetAllDepartment_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="InstructorID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Budget" Nullable="true" />
+    <Property Type="String" Name="InstructorName" Nullable="true" MaxLength="201" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="RowVersion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllInstructor_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PeopleId" Nullable="false" />
+    <Property Type="Decimal" Name="Salary" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ssn" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetDepartmentById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="InstructorID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Budget" Nullable="true" />
+    <Property Type="String" Name="InstructorName" Nullable="true" MaxLength="201" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="RowVersion" Nullable="true" />
+    <Property Type="DateTime" Name="createddate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="createdby" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetDepartmentByName_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Budget" Nullable="true" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="InstructorID" Nullable="false" />
+    <Property Type="Int32" Name="RowVersion" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetInstructorById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PeopleId" Nullable="false" />
+    <Property Type="Decimal" Name="Salary" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="firstname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ssn" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

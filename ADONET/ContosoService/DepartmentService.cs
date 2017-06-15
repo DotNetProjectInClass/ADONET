@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Contoso.Models;
 using Contoso.Repository;
+using EFRepository;
+using Department = Contoso.Models.Departments;
 
 namespace ContosoService
 {
@@ -16,10 +17,32 @@ namespace ContosoService
             int id = _departmentRepository.Create(department);
         }
 
-        public List<Department> GetAllDepartments()
+        public List<GetAllDepartment_Result> GetAllDepartments()
         {
-            List<Department> departments = new List<Department>();
-            departments = _departmentRepository.GetAll().ToList();
+            var departments = new List<GetAllDepartment_Result>();
+            using (var db = new EFRepository.StudentEntities())
+            {
+                var department = new EFRepository.Department()
+                {
+                    InstructorID = 1,
+                    Budget = 1900,
+                    CreatedBy = 1,
+                    CreatedDate = DateTime.Now,
+                    Name = "Testing From EF",
+                    RowVersion = 1
+                };
+                db.Departments.Add(department);
+                db.SaveChanges();                
+            }
+
+            using (var db = new EFRepository.StudentEntities())
+            {
+                departments = db.GetAllDepartment().ToList();
+                var testing = db.Departments.ToList();
+            }
+
+          
+            
             return departments;
         }
 

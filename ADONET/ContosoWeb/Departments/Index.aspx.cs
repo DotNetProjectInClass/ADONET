@@ -19,10 +19,10 @@ namespace ContosoWeb.Departments
 		        repeaterDepartment.DataSource = departments;
                 repeaterDepartment.DataBind();
 		    }
-		    //int a = 1;
-		    //int b = 0;
-		    //var c = a / b;
-		}
+            //int a = 1;
+            //int b = 0;
+            //var c = a / b;
+        }
 
 	    protected void repeaterDepartment_OnItemCommand(object source, RepeaterCommandEventArgs e)
 	    {

@@ -16,7 +16,7 @@ namespace ContosoWeb.Departments
         protected void Page_Load(object sender, EventArgs e)
         {
             _id =Convert.ToInt32(Request.QueryString["departmentId"]);
-            Contoso.Models.Department department = _departmentervice.GetDepartmentById(_id);
+            Contoso.Models.Departments department = _departmentervice.GetDepartmentById(_id);
             if (!Page.IsPostBack)
             {
                 txtName.Text = department.Name;
@@ -30,7 +30,7 @@ namespace ContosoWeb.Departments
                 ddlInstructor.DataSource = dataSouce;
                 ddlInstructor.DataTextField = "Name";
                 ddlInstructor.DataValueField = "Id";
-                ddlInstructor.SelectedValue = department.InstructorId.HasValue ? department.InstructorId.Value.ToString() : "0";
+               // ddlInstructor.SelectedValue = department.InstructorId.HasValue ? department.InstructorId.Value.ToString() : "0";
                 ddlInstructor.DataBind();
 
             }
@@ -38,16 +38,16 @@ namespace ContosoWeb.Departments
 
         protected void btnSave_OnClick(object sender, EventArgs e)
         {
-            Contoso.Models.Department department = new Contoso.Models.Department();
-            department.Id = _id;
-            department.InstructorId = Convert.ToInt32(ddlInstructor.SelectedValue);
-            department.Budget = Convert.ToInt32(txtBudget.Text);
-            department.Name = txtName.Text.ToString();
-            department.StartDate = Convert.ToDateTime(txtStartDate.Text);
+            //Contoso.Models.Department department = new Contoso.Models.Department();
+            //department.Id = _id;
+            //department.InstructorId = Convert.ToInt32(ddlInstructor.SelectedValue);
+            //department.Budget = Convert.ToInt32(txtBudget.Text);
+            //department.Name = txtName.Text.ToString();
+            //department.StartDate = Convert.ToDateTime(txtStartDate.Text);
             
-            _departmentervice.UpdateDepartment(department);
+            //_departmentervice.UpdateDepartment(department);
 
-            Response.Redirect("Index.aspx");
+            //Response.Redirect("Index.aspx");
 
         }
 

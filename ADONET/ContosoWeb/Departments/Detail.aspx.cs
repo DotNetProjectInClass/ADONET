@@ -16,9 +16,9 @@ namespace ContosoWeb.Departments
 		{
 		    var departmentId = Convert.ToInt32(Request.QueryString["departmentId"]);
 
-		    Contoso.Models.Department department = _departmentervice.GetDepartmentById(departmentId);
+		    Contoso.Models.Departments department = _departmentervice.GetDepartmentById(departmentId);
 		    txtName.Text = department.Name;
-		    txtInstructor.Text = department.InstructorName;
+		    //txtInstructor.Text = department.InstructorName;
 		    txtCreatedDate.Text = Convert.ToDateTime(department.CreatedDate).ToString("MM/dd/yyyy");
             txtBudget.Text = department.Budget.ToString();
 		    if (department.CreatedBy.HasValue)

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Student.cs" />
     <Compile Include="Courses.cs" />
-    <Compile Include="Department.cs" />
+    <Compile Include="Departments.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Instructor.cs" />
     <Compile Include="People.cs" />

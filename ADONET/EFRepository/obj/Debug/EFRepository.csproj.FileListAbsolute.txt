@@ -1,0 +1,10 @@
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EFRepository.dll.config
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EFRepository.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EFRepository.pdb
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EntityFramework.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EntityFramework.xml
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\obj\Debug\EFRepository.csprojResolveAssemblyReference.cache
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\obj\Debug\EFRepository.dll
+C:\Users\xie_x\Documents\Visual Studio 2017\Projects\ADONETGIT\ADONET\EFRepository\obj\Debug\EFRepository.pdb

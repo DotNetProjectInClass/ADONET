@@ -38,9 +38,9 @@ namespace ContosoWeb.Departments
 
         protected void btnSave_OnClick(object sender, EventArgs e)
         {
-            Contoso.Models.Department department = new Contoso.Models.Department();
+            Contoso.Models.Departments department = new Contoso.Models.Departments();
 
-            department.InstructorId = Convert.ToInt32(ddlInstructor.SelectedValue);
+            //department.InstructorId = Convert.ToInt32(ddlInstructor.SelectedValue);
             department.Budget = Convert.ToInt32(txtBudget.Text);
             department.Name = txtName.Text.ToString();
             department.StartDate = Convert.ToDateTime(txtStartDate.Text);

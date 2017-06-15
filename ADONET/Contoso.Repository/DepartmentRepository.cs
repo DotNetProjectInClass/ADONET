@@ -11,13 +11,13 @@ using System.Net.Configuration;
 
 namespace Contoso.Repository
 {
-    public class DepartmentRepository:ICrudService<Department>
+    public class DepartmentRepository:ICrudService<Departments>
     {
         string cs = ConfigurationManager.ConnectionStrings["ContosoDbContext"].ConnectionString;
   
-        public Department GetDepartmentByName(string name)
+        public Departments GetDepartmentByName(string name)
         {
-            Department dep = new Department();
+            Departments dep = new Departments();
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("GetDepartmentByName", connection);
             command.Parameters.AddWithValue("@Name", name);
@@ -31,7 +31,7 @@ namespace Contoso.Repository
                     dep.Id = Convert.ToInt32(reader["Id"]);
                     dep.Budget = Convert.ToInt32(reader["Budget"]);
                     dep.Name = reader["Name"].ToString();
-                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    //dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
                     dep.StartDate = Convert.ToDateTime(reader["StartDate"]);   
                 }
             }
@@ -47,14 +47,14 @@ namespace Contoso.Repository
             return dep;
         }
 
-        public int Create(Department department)
+        public int Create(Departments department)
         {
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("CreateDepartment", connection);
             command.Parameters.AddWithValue("@name", department.Name);
             command.Parameters.AddWithValue("@Budget", department.Budget);
             command.Parameters.AddWithValue("@StartDate", department.StartDate);
-            command.Parameters.AddWithValue("@instructorid", department.InstructorId);
+            //command.Parameters.AddWithValue("@instructorid", department.InstructorId);
             command.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
             command.Parameters.AddWithValue("@CreatedBy", 1);
             var departmentId = command.Parameters.Add("@Id", SqlDbType.Int);
@@ -79,7 +79,7 @@ namespace Contoso.Repository
             return department.Id;
         }
 
-        public void Update(Department department)
+        public void Update(Departments department)
         {
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("UpdateDepartment", connection);
@@ -87,7 +87,7 @@ namespace Contoso.Repository
             command.Parameters.AddWithValue("@name", department.Name);
             command.Parameters.AddWithValue("@Budget", department.Budget);
             command.Parameters.AddWithValue("@StartDate", department.StartDate);
-            command.Parameters.AddWithValue("@instructorid", department.InstructorId);
+           // command.Parameters.AddWithValue("@instructorid", department.InstructorId);
             command.Parameters.AddWithValue("@RowVersion", 1);
             command.Parameters.AddWithValue("@UpdatedBy", 1);
             command.Parameters.AddWithValue("@UpdatedDate", DateTime.Now);
@@ -135,9 +135,9 @@ namespace Contoso.Repository
             }
         }
 
-        public Department Get(int id)
+        public Departments Get(int id)
         {
-            Department department = new Department();
+            Departments department = new Departments();
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("GetDepartmentById", connection);
             command.Parameters.AddWithValue("@Id", id);
@@ -151,8 +151,8 @@ namespace Contoso.Repository
                     department.Id = Convert.ToInt32(reader["Id"]);
                     department.Budget = Convert.ToInt32(reader["Budget"]);
                     department.Name = reader["Name"].ToString();
-                    department.InstructorName = reader["InstructorName"].ToString();
-                    department.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    //department.InstructorName = reader["InstructorName"].ToString();
+                    //department.InstructorId = Convert.ToInt32(reader["InstructorId"]);
                     department.StartDate = Convert.ToDateTime(reader["StartDate"]);
                     department.CreatedBy = Convert.ToInt32(reader["CreatedBy"]);
                 }
@@ -169,9 +169,9 @@ namespace Contoso.Repository
             return department;
         }
 
-        public IEnumerable<Department> GetAll()
+        public IEnumerable<Departments> GetAll()
         {
-            List<Department> depts = new List<Department>();
+            List<Departments> depts = new List<Departments>();
             SqlConnection connection = new SqlConnection(cs);
             SqlCommand command = new SqlCommand("GetAllDepartment", connection);
             try
@@ -180,12 +180,12 @@ namespace Contoso.Repository
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    Department dep = new Department();
+                    Departments dep = new Departments();
                     dep.Id = Convert.ToInt32(reader["Id"]);
                     dep.Budget = Convert.ToInt32(reader["Budget"]);
                     dep.Name = reader["Name"].ToString();
-                    dep.InstructorName = reader["InstructorName"].ToString();
-                    dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
+                    //dep.InstructorName = reader["InstructorName"].ToString();
+                    //dep.InstructorId = Convert.ToInt32(reader["InstructorId"]);
                     dep.StartDate = Convert.ToDateTime(reader["StartDate"]);
                     depts.Add(dep);
                 }

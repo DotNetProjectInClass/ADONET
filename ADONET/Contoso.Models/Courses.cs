@@ -12,5 +12,6 @@ namespace Contoso.Models
         public string Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentId { get; set; }
+        public Departments Department { get; set; }
     }
 }

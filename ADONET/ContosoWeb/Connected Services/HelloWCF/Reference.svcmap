@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="54d6a586-8597-4164-99c4-7acb411a653c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:64889/ContosoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContosoService.xsd" MetadataType="Schema" ID="b4dda7be-d46e-491a-b238-d64ed9d46d2f" SourceId="1" SourceUrl="http://localhost:64889/ContosoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContosoService.disco" MetadataType="Disco" ID="1324752d-ed81-4ec3-9540-0a12b833d726" SourceId="1" SourceUrl="http://localhost:64889/ContosoService.svc?disco" />
+    <MetadataFile FileName="ContosoService2.xsd" MetadataType="Schema" ID="92f58e60-8a3d-4bf4-b575-bcf9ebe59513" SourceId="1" SourceUrl="http://localhost:64889/ContosoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContosoService.wsdl" MetadataType="Wsdl" ID="b15e7887-19ec-492a-a2f6-6e923be848ec" SourceId="1" SourceUrl="http://localhost:64889/ContosoService.svc?wsdl" />
+    <MetadataFile FileName="ContosoService1.xsd" MetadataType="Schema" ID="c7ee9cc5-8fc4-4761-9212-1de01de4a14f" SourceId="1" SourceUrl="http://localhost:64889/ContosoService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
